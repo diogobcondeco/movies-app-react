@@ -31,9 +31,14 @@ function App() {
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
-    getMovies(API_SEARCH_MOVIE + searchTerm);
+    if(searchTerm !== "") {
+      getMovies(API_SEARCH_MOVIE + searchTerm);
 
-    setSearchTerm("");
+      setSearchTerm("");
+    } else {
+      getMovies(API_FEATURED);
+    }
+    
   }
 
   return (
